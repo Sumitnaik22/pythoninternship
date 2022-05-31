@@ -17,19 +17,19 @@ Second line contains N space separated integers, denoting the rank of each emplo
 t=int(input("Number of test cases:"))
 for k in range(t):
 
-  n=int(input("Number of employees:"))
+  n=int(input("Number of employees:"))   # get input for no.of employees
 
-  l=list(map(int,input("N seperated integer denoting ranks of employee:").split(' ')))
+  l=list(map(int,input("N seperated integer denoting ranks of employee:").split(' ')))  #list of rank of each employee
 
-  m = [int(1)]*len(l)
+  m = [int(1)]*len(l)    # list to map number of gifts for each employee
 
   for i in range(0,n-1):
 
-     if l[i]>l[i+1] and m[i]<=m[i+1]:
+     if l[i]>l[i+1] and m[i]<=m[i+1]:   # to check rank of next emloyee is lower than current employee or not  with lower no. of gifts 
 
         m[i]=m[i]+1
 
-        for j in range(i,0,-1):
+        for j in range(i,0,-1):     #loop to update 
 
            if l[j-1]>l[j] and m[j-1]<=m[j]:
 
@@ -39,8 +39,8 @@ for k in range(t):
 
               break
 
-     elif l[i]<l[i+1] and m[i+1]<=m[i]:
+     elif l[i]<l[i+1] and m[i+1]<=m[i]: # to check rank of next employee is greater than current employee or not with higher no. of gifts
 
         m[i+1]=m[i]+1
 
-  print("Total number of gifts required for case {}:{}".format((k+1),sum(m)))
+  print("Total number of gifts required for case {}:{}".format((k+1),sum(m)))  #output the total no.of gifts for employees in each case.
